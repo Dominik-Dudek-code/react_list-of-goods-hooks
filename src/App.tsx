@@ -35,7 +35,7 @@ export function getReorderedGoods(
   if (sortType === SortType.ALPHABET) {
     visibleGoods.sort((a, b) => a.localeCompare(b));
   } else if (sortType === SortType.LENGTH) {
-    visibleGoods.sort((a, b) => +a.length - b.length);
+    visibleGoods.sort((a, b) => a.length - b.length);
   }
 
   if (isReversed) {
@@ -46,8 +46,8 @@ export function getReorderedGoods(
 }
 
 export const App: React.FC = () => {
-  const [sortType, setSortType] = useState(SortType.NONE);
-  const [isReversed, setIsReversed] = useState(false);
+  const [sortType, setSortType] = useState<SortType>(SortType.NONE);
+  const [isReversed, setIsReversed] = useState<boolean>(false);
 
   const listOfGoods = getReorderedGoods(goodsFromServer, {
     sortType,
